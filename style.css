@@ -1,0 +1,125 @@
+/*Let insert many variables in other to ease our work*/
+:root{
+    /*Let insert our image variables*/
+    --image1:url("images/24209.jpg");
+    --image2:url("images/33408.jpg");
+    --image3:url("images/grande-ville.jpg");
+    --image4:url("images/48219.jpg");
+    --close-screen:clip-path(0% at 50% 50%);
+    --fullscreen:clip-path(100% at 50% 50%);
+    --pic-transition:1s all ease-in-out;
+    --backgroundColor:rgb(4, 3, 3);
+    --backgroundSize:cover;
+    --backgroundposition:center;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+     background-color: var(--backgroundColor);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+h1{
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+}
+.gallery{
+  height: 32rem;
+  align-items: center;
+ justify-content: space-between;
+  display: flex;
+  animation: fadeInUp 1s ease-in-out;
+  width: 95%;
+  gap: 1rem;
+
+}
+.cards{
+    width: 20rem;
+    height: 24rem;
+    background-color: black;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    transition: var(--pic-transition);
+    clip-path: var(--close-screen);
+}
+.cards:hover{
+    scale: 105%;
+    clip-path: var(--fullscreen);
+    animation: bounce 0.6s ease-in-out;
+}
+.cards:nth-child(1){
+    background-image: var(--image1);
+    background-position: center;
+    background-size: var(--backgroundSize);
+    animation: fadeInCard 1.5s ease-in-out 0.2s both;
+}
+.cards:nth-child(2){
+    background-image:var(--image2);
+    background-position: var(--backgroundposition);
+    background-size: var(--backgroundSize);
+    animation: fadeInCard 1.5s ease-in-out 0.4s both;
+}
+.cards:nth-child(3){
+    background-image:var(--image3);
+    background-position: var(--backgroundposition);
+    background-size: var(--backgroundSize);
+    animation: fadeInCard 1.5s ease-in-out 0.6s both;
+}
+.cards:nth-child(4){
+    background-image:var(--image4);
+    background-position: var(--backgroundposition);
+    background-size: var(--backgroundSize);
+    animation: fadeInCard 1.5s ease-in-out 0.8s both;
+}
+
+/*Let add some Css animations*/
+
+@keyframes fadeInUp{
+    from{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInCard{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce{
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
